@@ -12,7 +12,7 @@ before_install:
   - docker pull rianol/gitbook
 
 script:
-  - docker run --rm -v "$PWD:/gitbook" [-p 4000:4000] rianol/gitbook serve ./docs/user_doc ./gitbook
+  - docker run --rm -v "$TRAVIS_BUILD_DIR:/gitbook" [-p 4000:4000] rianol/gitbook serve ./docs/user_doc ./gitbook
 deploy:
   provider: pages
   skip_cleanup: true
