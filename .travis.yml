@@ -9,10 +9,11 @@ services:
 
 before_install:
   - mkdir -p output
+  - ls
   - docker pull runmyprocess/gitbook
 
 script:
-  - docker run -v $TRAVIS_BUILD_DIR:/documents --name md-to-html runmyprocess/gitbook gitbook serve ./docs/user_doc ./output
+  - docker run -v $TRAVIS_BUILD_DIR:/documents --name md-to-html runmyprocess/gitbook gitbook serve docs/user_doc ./output
 
 deploy:
   provider: pages
