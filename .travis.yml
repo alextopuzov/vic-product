@@ -8,16 +8,15 @@ services:
   - docker
 
 before_install:
-  - mkdir -p output
-  - docker pull runmyprocess/gitbook
+  - mkdir -p gitbook
+  - docker pull rianol/gitbook
 
 script:
-  - docker run -v $TRAVIS_BUILD_DIR:/ --name md-to-html runmyprocess/gitbook
-
+  - docker run --rm -v "$PWD:/gitbook" [-p 4000:4000] rianol/gitbook serve ./docs/user_doc ./gitbook
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GH_TOKEN
-  local_dir: output
+  local_dir: gitbook
   on:
 branch: master
