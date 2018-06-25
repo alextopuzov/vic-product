@@ -2,7 +2,7 @@
 
 *Overview of vSphere Integrated Containers* provides an introduction to container technology and an overview of VMware vSphere&reg; Integrated Containers&trade;.
 
-**Product version: 1.4**
+**Product version: LATEST IN-PROGRESS DOC**
 
 This documentation applies to all 1.4.x releases.
 
