@@ -9,10 +9,10 @@ services:
 
 before_install:
   - mkdir -p assets/files/html/wip
-  - docker pull runmyprocess/gitbook
+  - docker pull alextopuzov/gitbook
 
 script:
-  - docker run -v $TRAVIS_BUILD_DIR:/documents --name md-to-html runmyprocess/gitbook gitbook build /documents/docs/user_doc /documents/assets/files/html/wip
+  - docker run -v $TRAVIS_BUILD_DIR:/documents --name md-to-html alextopuzov/gitbook gitbook build /documents/docs/user_doc /documents/assets/files/html/wip
 
 deploy:
   provider: pages
