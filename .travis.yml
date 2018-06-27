@@ -8,17 +8,16 @@ services:
   - docker
 
 before_install:
-  - mkdir -p output
-  - ls
+  - mkdir -p assets/files/html/wip/output
   - docker pull runmyprocess/gitbook
 
 script:
-  - docker run -v $TRAVIS_BUILD_DIR:/documents --name md-to-html runmyprocess/gitbook gitbook build /documents/docs/user_doc /documents/output
+  - docker run -v $TRAVIS_BUILD_DIR:/documents --name md-to-html runmyprocess/gitbook gitbook build /documents/docs/user_doc /documents/assets/files/html/wip/output
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GH_TOKEN
-  local_dir: output
+  local_dir: assets
   on:
 branch: master
